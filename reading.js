@@ -1,0 +1,51 @@
+//等待无障碍服务响应
+auto.waitFor();
+//打开咪咕
+app.launch("com.ophone.reader.ui");
+//点击搜索框
+id("recom_btn_search").findOne().click();
+sleep(3000);
+//搜索关键词
+setText("天天爱阅读");
+id("btn_search_txt").findOne().click();
+//点击banner
+sleep(10000);
+click(1274,630);//注意：此处坐标为banner位置，请自行修改
+//className("android.view.View").text("%E6%90%9C%E7%B4%A2%E5%8F%A3%E4%BB%A4%E5%9B%BE").findOne().parent().click();
+//活动页面
+sleep(6000);
+className("android.view.View").text("去阅读").findOne().click();
+sleep(10000);
+//className("android.view.View").text("断舍离").findOne().click();
+click(250,1800);//注意：此处坐标为进入书籍点击位置，请自行修改
+//以下为阅读代码
+for(var i = 0; i < 31; i++){
+    sleep(random(30000, 40000));
+    click(1200,2200);//注意：此处坐标为翻页点击位置，请自行修改
+    toast(i);
+  }
+//返回签到
+back();
+sleep(6000);
+back();
+sleep(3000);
+back();
+sleep(6000);
+className("android.view.View").text("签到").clickable(true).findOne().click()
+back();
+sleep(2000);
+back();
+sleep(2000);
+back();
+sleep(1000);
+back();
+sleep(1000);
+back();
+sleep(1000);
+back();
+sleep(1000);
+back();
+sleep(1000);
+back();
+sleep(1000);
+toast("恭喜你完成打卡！");
